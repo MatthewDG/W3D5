@@ -56,6 +56,8 @@ module Associatable
     options[:class_name] = name.to_s.singularize.camelcase
     options = BelongsToOptions.new(name, options)
 
+    assoc_options[name] = options
+    # debugger
     define_method(name) do
       target_class = options.model_class
       if options.foreign_key.nil?
@@ -82,6 +84,8 @@ module Associatable
 
   def assoc_options
     # Wait to implement this in Phase IVa. Modify `belongs_to`, too.
+    @assoc_options ||= {}
+
   end
 end
 
