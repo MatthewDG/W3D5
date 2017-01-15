@@ -9,8 +9,12 @@ module Associatable
     define_method(name) do
       through_options = self.class.assoc_options[through_name]
       source_options = through_options.model_class.assoc_options[source_name]
-      debugger
-      source_options.class_name.constantize.parse_all[source_options]
+      through_obj = self.send(through_options.name)
+
+
+      through_class_ref = through_obj.send(source_options.foreign_key)
+      source_options.class_name.constantize
+      .where(:id => through_class_ref).first
     end
   end
 end
