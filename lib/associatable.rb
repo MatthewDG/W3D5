@@ -6,7 +6,7 @@ require 'active_support/inflector'
 
 module Associatable
   def belongs_to(name, options = {})
-    options[:class_name] = name.to_s.singularize.camelcase
+    options[:class_name] = options[:class_name] || name.to_s.singularize.camelcase
     options = BelongsToOptions.new(name, options)
 
     assoc_options[name] = options
@@ -23,7 +23,7 @@ module Associatable
   end
 
   def has_many(name, options = {})
-    options[:class_name] = name.to_s.singularize.camelcase
+    options[:class_name] = options[:class_name] || name.to_s.singularize.camelcase
     options = HasManyOptions.new(name, self.to_s,options)
 
     define_method(name) do

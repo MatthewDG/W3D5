@@ -4,15 +4,15 @@ CREATE TABLE dogs (
   breed VARCHAR(255) NOT NULL,
   owner_id INTEGER,
 
-  FOREIGN KEY(owner_id) REFERENCES human(id)
+  FOREIGN KEY(owner_id) REFERENCES people(id)
 );
 
-CREATE TABLE humans (
+CREATE TABLE people (
   id INTEGER PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
   house_id INTEGER,
 
-  FOREIGN KEY(house_id) REFERENCES human(id)
+  FOREIGN KEY(house_id) REFERENCES people(id)
 );
 
 CREATE TABLE houses (
@@ -27,7 +27,7 @@ VALUES
   (2, "New York City");
 
 INSERT INTO
-  humans (id, name, house_id)
+  people (id, name, house_id)
 VALUES
   (1, "Matt", 2),
   (2, "Emily", 2),

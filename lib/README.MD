@@ -1,10 +1,10 @@
-# MellowORM
+# ORMellow
 
-MellowORM is a lightweight adaptation of Ruby on Rails' `ActiveRecord::Base`. MellowORM bridges the gap between Ruby objects and a SQLite3 database with SQL query generating Ruby methods allowing for concise model classes.
+ORMellow is a lightweight adaptation of Ruby on Rails' `ActiveRecord::Base`. ORMellow bridges the gap between Ruby objects and a SQLite3 database with SQL query generating Ruby methods allowing for concise model classes.
 
 ## API
 
-MellowORM provides the following conventional ORM methods that Rails developers know and love:
+ORMellow provides the following conventional ORM methods that Rails developers know and love:
 
 #### Core ORM methods available in `SQLObject` class
 - `::all`
