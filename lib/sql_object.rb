@@ -14,9 +14,8 @@ class SQLObject
         #{table_name}
     SQL
 
-
-    arr.first.each do |k,v|
-       cols << k.to_sym
+    arr.first.each do |key, value|
+       cols << key.to_sym
      end
 
     @columns = cols)
@@ -86,7 +85,6 @@ class SQLObject
 
   def attributes
     @attributes ||= {}
-
   end
 
   def attribute_values
