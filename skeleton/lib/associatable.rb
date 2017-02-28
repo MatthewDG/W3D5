@@ -1,7 +1,6 @@
 require_relative '02_searchable'
 require 'active_support/inflector'
-require 'byebug'
-# Phase IIIa
+
 class AssocOptions
   attr_accessor(
     :foreign_key,
@@ -11,7 +10,6 @@ class AssocOptions
   )
 
   def model_class
-    # debugger
     self.class_name.constantize
   end
 
@@ -52,13 +50,12 @@ class HasManyOptions < AssocOptions
 end
 
 module Associatable
-  # Phase IIIb
   def belongs_to(name, options = {})
     options[:class_name] = name.to_s.singularize.camelcase
     options = BelongsToOptions.new(name, options)
 
     assoc_options[name] = options
-    # debugger
+
     define_method(name) do
       target_class = options.model_class
       if options.foreign_key.nil?
@@ -77,20 +74,16 @@ module Associatable
     define_method(name) do
       target_class = options.model_class
       foreign_key = options.foreign_key
-      # debugger
       target_class.where(options.foreign_key => self.id)
     end
 
   end
 
   def assoc_options
-    # Wait to implement this in Phase IVa. Modify `belongs_to`, too.
     @assoc_options ||= {}
-
   end
 end
 
 class SQLObject
-  # Mixin Associatable here...
   extend Associatable
 end

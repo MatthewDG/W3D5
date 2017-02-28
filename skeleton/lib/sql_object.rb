@@ -1,10 +1,5 @@
 require_relative 'db_connection'
 require 'active_support/inflector'
-require 'byebug'
-
-# NB: the attr_accessor we wrote in phase 0 is NOT used in the rest
-# of this project. It was only a warm up.
-
 
 class SQLObject
   attr_accessor :attributes
@@ -29,7 +24,6 @@ class SQLObject
 
   def self.finalize!
     self.columns.each do |col|
-
       define_method(col) do
         attributes[col.to_sym]
       end
@@ -37,7 +31,6 @@ class SQLObject
       define_method(col.to_s + "=") do |arg|
         attributes[col.to_sym] = arg
       end
-
     end
 
   end
