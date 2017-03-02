@@ -58,7 +58,7 @@ Person.all.last.dogs
 
 ## Usage and demo setup
 
-You can get up and running with ORMellow models in just a few easy steps! Reset the `DOGS_SQL_FILE` and `DOGS_DB_FILE` to your database files in `lib/db_connection.rb` to swap in your own database. Require `ormellow.rb` in your project and extend the `SQLObject` class on your model classes. Be sure to call `::finalize` on your class in order to attach the attribute getter and setter methods to the model.
+You can get up and running with ORMellow models in just a few easy steps! Reset the `SQL_FILE` and `DB_FILE` to your database files in `lib/db_connection.rb` to swap in your own database. Require `ormellow.rb` in your project and extend the `SQLObject` class on your model classes. Be sure to call `::finalize` on your class in order to attach the attribute getter and setter methods to the model.
 
 ```
 Person.finalize!
@@ -66,4 +66,4 @@ House.finalize!
 Dog.finalize!
 ```
 
-If you'd like to demo ORMellow with a sample database, require 'dogs_demo.rb' in your script or REPL. After that, you're all set to use the core ORM methods to query the database.
+If you'd like to demo ORMellow with a sample database, require 'demo/dogs_demo.rb' in your script or REPL. After that, you're all set to use the core ORM methods to query the database.

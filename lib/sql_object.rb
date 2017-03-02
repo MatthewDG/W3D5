@@ -1,5 +1,10 @@
 require_relative 'db_connection'
+require_relative './searchable'
+require_relative './associatable'
 require 'active_support/inflector'
+
+include Searchable
+include Associatable
 
 class SQLObject
   attr_accessor :attributes
