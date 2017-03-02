@@ -1,4 +1,4 @@
-require_relative './ormellow.rb'
+require_relative '.././ormellow.rb'
 
 DBConnection::reset
 
